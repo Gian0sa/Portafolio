@@ -68,14 +68,15 @@ export default function Home({ isDark }) {
               </button>
               
               <a 
-                href="/CV_Gian_Quispe.pdf" 
-                download="CV_Gian_Quispe.pdf"
-                className={`px-8 py-3 rounded-full font-black text-[11px] uppercase tracking-widest border-2 transition-all flex items-center justify-center hover:bg-blue-500 hover:text-white ${
-                  isDark ? "border-white/20 text-white" : "border-black/10 text-black"
-                }`}
-              >
-                Ver CV ↗
-              </a>
+  href="/Gian_CV.pdf" 
+  target="_blank"
+  rel="noreferrer"
+  className={`px-8 py-3 rounded-full font-black text-[11px] uppercase tracking-widest border-2 transition-all flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 hover:text-white ${
+    isDark ? "border-white/20 text-white" : "border-black/10 text-black"
+  }`}
+>
+  Ver CV ↗
+</a>
             </div>
           </div>
         </div>
