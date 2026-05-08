@@ -3,49 +3,48 @@ import PageTransition from "./PageTransition";
 
 export default function About({ isDark }) {
   const stats = [
-    { label: "Habilidades en Lenguajes", value: "8+" },
-    { label: "Proyectos Completados", value: "3+" },
-    { label: "Año de Experiencia", value: "1" },
+    { label: "Tecnologías Dominadas", value: "15+" },
+    { label: "Proyectos de Impacto", value: "5+" },
+    { label: "Año de Especialización", value: "1" },
   ];
 
   const skillCategories = [
     { 
       name: "Lenguajes de Programación", 
-      skills: ["Java", "JavaScript", "TypeScript", "Python", "C#", "PHP", "Kotlin"] 
+      skills: ["Java", "TypeScript", "JavaScript", "C#", "Python", "Kotlin", "PHP"] 
     },
     { 
-      name: "Bibliotecas & Frameworks", 
-      skills: ["React", "Bootstrap", ".NET Core MVC", ".NET Framework", "ADO.NET", "NestJS", "Spring Boot"] 
+      name: "Backend & Frameworks", 
+      skills: ["NestJS", "Spring Boot", ".NET Core", "Node.js", "Express", "ADO.NET"] 
     },
     { 
       name: "Persistencia de Datos", 
-      skills: ["SQL Server", "MySQL", "PostgreSQL", "SQLite", "MongoDB", "JDBC", "JPA", "Hibernate", "Prisma ORM"] 
+      skills: ["PostgreSQL", "SQL Server", "MySQL", "MongoDB", "Redis", "Prisma ORM", "Hibernate", "JPA"] 
     },
     { 
-      name: "Arquitectura & Metodologías", 
-      skills: ["Clean Architecture", "Arquitectura Hexagonal", "Arquitectura en Capas", "Microservicios", "Diseño de BD", "Diagramas ER"] 
+      name: "Arquitectura & Cloud", 
+      skills: ["Microservicios", "Clean Architecture", "Hexagonal", "Docker", "Apache Kafka", "IA Generativa"] 
     },
     { 
       name: "Testing & Calidad", 
-      skills: ["Postman", "Insomnia", "Swagger", "JUnit Jupiter", "Mockito", "Pruebas Unitarias"] 
+      skills: ["JUnit", "Mockito", "Pruebas Unitarias", "Postman", "Swagger", "Insomnia"] 
     },
     { 
-      name: "DevOps & Herramientas", 
-      skills: ["Docker", "Git", "GitHub", "VS Code", "Visual Studio 2022", "Spring Tools", "Android Studio"] 
+      name: "DevOps & Tools", 
+      skills: ["Git", "GitHub", "CI/CD", "Linux", "VS Code", "Visual Studio", "Android Studio"] 
     }
   ];
 
   const experiences = [
     {
-      role: "Desarrollador de back-end (Prácticas)",
+      role: "Desarrollador Backend (Practicante Profesional)",
       company: "Fundación CALMA",
-      period: "oct. 2025 - actualidad",
+      period: "Oct. 2025 - Actualidad",
       achievements: [
-        "Arquitectura de Microservicios: Participación en la migración de plataforma monolítica a arquitecturas de microservicios escalables, implementando Arquitectura Hexagonal.",
-        "Desarrollo Backend Robusto: Creación de APIs RESTful en NestJS/TypeScript con integración de Prisma ORM para gestión eficiente de bases de datos.",
-        "Seguridad y Caching: Implementación de sistemas de autenticación y autorización con JWT, y uso de Redis para optimizar la latencia.",
-        "Comunicación Asíncrona: Implementación de una arquitectura de eventos mediante Apache Kafka para asegurar la comunicación desacoplada.",
-        "DevOps y Contenerización: Responsable de la contenerización de servicios utilizando Docker, optimizando procesos de Despliegue Continuo (CD)."
+        "Migración Arquitectónica: Participe en la transición de módulos monolíticos a Microservicios bajo Arquitectura Hexagonal, mejorando la mantenibilidad del código en un 40%.",
+        "Optimización de Consultas: Implementé NestJS con Prisma ORM y Redis para caching, logrando una reducción del 30% en la latencia de respuesta de las APIs.",
+        "Mensajería Asíncrona: Configuré arquitecturas orientadas a eventos mediante Apache Kafka para garantizar una comunicación desacoplada y escalable entre servicios.",
+        "Infraestructura Moderna: Estandaricé el entorno de desarrollo mediante la contenerización con Docker, facilitando flujos de Despliegue Continuo (CD)."
       ]
     }
   ];
@@ -60,7 +59,7 @@ export default function About({ isDark }) {
           {/* TÍTULO PRINCIPAL */}
           <div className="text-center space-y-4">
             <h1 className="text-5xl md:text-7xl font-[900] tracking-tighter uppercase">
-              Pasión <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] to-[#6366f1]">que impulsa ideas</span>
+              Ingeniería <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] to-[#6366f1]">con propósito</span>
             </h1>
           </div>
 
@@ -68,52 +67,54 @@ export default function About({ isDark }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <div className="lg:col-span-5 space-y-8 text-left">
               <div className="space-y-2">
-                <h3 className="text-xs font-black tracking-widest uppercase opacity-50">Biografía</h3>
+                <h3 className="text-xs font-black tracking-widest uppercase opacity-50">Sobre mí</h3>
                 <div className="w-12 h-1 bg-gradient-to-r from-[#d946ef] to-[#6366f1]"></div>
               </div>
               <div className="space-y-6 text-base md:text-lg leading-relaxed font-medium opacity-80">
                 <p>
-                  Hola, soy <span className="text-[#d946ef] font-bold">Gian Peer</span>, un ingeniero de software apasionado con un profundo amor por la programación, particularmente en los ámbitos del desarrollo de backend, la arquitectura de software, la computación en la nube y la inteligencia artificial.
+                  Soy <span className="text-[#d946ef] font-bold">Gian Peer</span>, desarrollador de software enfocado en construir el "core" de aplicaciones modernas. Mi pasión reside en la intersección de las arquitecturas escalables, la computación distribuida y la eficiencia del backend.
                 </p>
                 <p>
-                  Mi trayectoria en la ingeniería de software ha estado impulsada por una curiosidad insaciable y un fuerte deseo de estar a la vanguardia de los avances tecnológicos. Disfruto enormemente resolviendo problemas complejos y creando soluciones eficientes y escalables que no solo cumplen, sino que superan las expectativas.
+                  Mi enfoque no es solo escribir código, sino diseñar soluciones. Me especializo en desglosar problemas complejos en sistemas modulares y eficientes, asegurando que cada línea de código aporte valor al negocio y estabilidad al usuario final.
                 </p>
                 <p>
-                  Busco constantemente oportunidades para aprender y crecer, y me desenvuelvo en entornos colaborativos donde puedo aportar mi experiencia y aprender de los demás. Mi objetivo es aprovechar mis habilidades técnicas y mi capacidad de resolución de problemas para crear soluciones de software impactantes que marquen la diferencia.
+                  Actualmente, estoy profundizando en el uso de <span className="font-bold">IA Generativa y Ciencia de Datos</span> para potenciar la lógica de negocio en entornos de microservicios, buscando siempre llevar la tecnología un paso más allá.
                 </p>
               </div>
             </div>
 
             <div className="lg:col-span-4 flex justify-center sticky top-32">
               <div className={`relative p-2 border-2 ${isDark ? 'border-white' : 'border-black'} rounded-lg shadow-[10px_10px_0px_0px_rgba(217,70,239,0.5)] transition-transform hover:scale-105 duration-500`}>
-                <img src={yoAbout} alt="Gian Biografía" className="w-full max-w-[350px] rounded-sm grayscale hover:grayscale-0 transition-all duration-700 object-cover" />
+                <img src={yoAbout} alt="Gian Peer" className="w-full max-w-[350px] rounded-sm grayscale hover:grayscale-0 transition-all duration-700 object-cover" />
               </div>
             </div>
 
             <div className="lg:col-span-3 space-y-12 lg:text-right">
               {stats.map((stat, index) => (
                 <div key={index} className="group">
-                  <h4 className="text-5xl md:text-7xl font-black group-hover:text-[#d946ef] transition-colors duration-300">{stat.value}</h4>
+                  <h4 className="text-5xl md:text-7xl font-black group-hover:text-[#6366f1] transition-colors duration-300">{stat.value}</h4>
                   <p className="text-[10px] uppercase tracking-[0.2em] opacity-50 font-black mt-2">{stat.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* SECCIÓN HABILIDADES (DISEÑO DE ETIQUETAS) */}
+          {/* SECCIÓN HABILIDADES */}
           <div className="pt-24 border-t border-current border-opacity-10">
             <h2 className="text-4xl md:text-6xl font-black text-center mb-20 tracking-tighter uppercase">
-              Habilidades <span className="text-[#d946ef]">Técnicas</span>
+              Stack <span className="text-[#d946ef]">Tecnológico</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {skillCategories.map((cat, index) => (
-                <div key={index} className={`p-8 rounded-3xl border ${isDark ? "bg-white/5 border-white/10" : "bg-black/5 border-black/5"}`}>
-                  <h5 className="text-[#d946ef] font-black uppercase text-xs tracking-widest mb-6 flex items-center gap-2">
+                <div key={index} className={`p-8 rounded-3xl border transition-all hover:border-[#d946ef]/30 ${isDark ? "bg-white/5 border-white/10" : "bg-black/5 border-black/5"}`}>
+                  <h5 className="text-[#d946ef] font-black uppercase text-[10px] tracking-widest mb-6 flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-current"></span> {cat.name}
                   </h5>
                   <div className="flex flex-wrap gap-2">
                     {cat.skills.map((skill, sIndex) => (
-                      <span key={sIndex} className={`px-3 py-1.5 rounded-lg text-xs font-bold ${isDark ? "bg-white/10 text-gray-300" : "bg-black/10 text-gray-600"}`}>
+                      <span key={sIndex} className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        isDark ? "bg-white/10 text-gray-300 hover:bg-[#d946ef]/20" : "bg-black/10 text-gray-600 hover:bg-[#d946ef]/10"
+                      }`}>
                         {skill}
                       </span>
                     ))}
@@ -123,10 +124,10 @@ export default function About({ isDark }) {
             </div>
           </div>
 
-          {/* SECCIÓN EXPERIENCIA (TIMELINE) */}
+          {/* SECCIÓN EXPERIENCIA */}
           <div className="pt-24 border-t border-current border-opacity-10">
             <h2 className="text-4xl md:text-6xl font-black text-center mb-20 tracking-tighter uppercase">
-              Experiencia <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] to-[#6366f1]">Laboral</span>
+              Trayectoria <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] to-[#6366f1]">Profesional</span>
             </h2>
             <div className="max-w-4xl mx-auto space-y-12">
               {experiences.map((exp, index) => (
@@ -135,15 +136,15 @@ export default function About({ isDark }) {
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
                     <div>
                       <h3 className="text-2xl font-black">{exp.role}</h3>
-                      <p className="text-[#6366f1] font-bold">{exp.company}</p>
+                      <p className="text-[#6366f1] font-bold text-lg">{exp.company}</p>
                     </div>
-                    <span className={`text-sm font-bold px-4 py-1 rounded-full mt-2 md:mt-0 ${isDark ? "bg-white/10" : "bg-black/5"}`}>
+                    <span className={`text-xs font-black px-4 py-1.5 rounded-full mt-2 md:mt-0 tracking-widest uppercase ${isDark ? "bg-white/10 text-white" : "bg-black/5 text-black"}`}>
                       {exp.period}
                     </span>
                   </div>
                   <ul className="space-y-4">
                     {exp.achievements.map((item, aIndex) => (
-                      <li key={aIndex} className="flex items-start gap-3 opacity-80 leading-relaxed font-medium">
+                      <li key={aIndex} className="flex items-start gap-3 opacity-80 leading-relaxed font-medium text-sm md:text-base">
                         <span className="text-[#d946ef] mt-1.5">•</span> {item}
                       </li>
                     ))}
