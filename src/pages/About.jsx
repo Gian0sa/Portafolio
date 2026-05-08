@@ -3,7 +3,7 @@ import PageTransition from "./PageTransition";
 
 export default function About({ isDark }) {
   const stats = [
-    { label: "Tecnologías Dominadas", value: "15+" },
+    { label: "Tecnologías Aprendidas", value: "15+" },
     { label: "Proyectos de Impacto", value: "5+" },
     { label: "Año de Especialización", value: "1" },
   ];
@@ -41,7 +41,7 @@ export default function About({ isDark }) {
       company: "Fundación CALMA",
       period: "Oct. 2025 - Actualidad",
       achievements: [
-        "Migración Arquitectónica: Participe en la transición de módulos monolíticos a Microservicios bajo Arquitectura Hexagonal, mejorando la mantenibilidad del código en un 40%.",
+        "Migración Arquitectónica: Lideré la transición de módulos monolíticos a Microservicios bajo Arquitectura Hexagonal, mejorando la mantenibilidad del código en un 40%.",
         "Optimización de Consultas: Implementé NestJS con Prisma ORM y Redis para caching, logrando una reducción del 30% en la latencia de respuesta de las APIs.",
         "Mensajería Asíncrona: Configuré arquitecturas orientadas a eventos mediante Apache Kafka para garantizar una comunicación desacoplada y escalable entre servicios.",
         "Infraestructura Moderna: Estandaricé el entorno de desarrollo mediante la contenerización con Docker, facilitando flujos de Despliegue Continuo (CD)."
@@ -54,18 +54,20 @@ export default function About({ isDark }) {
       <section className={`min-h-screen pt-32 pb-20 px-6 transition-colors duration-700 ${
         isDark ? "bg-[#0a0a0a] text-white" : "bg-[#f8f9fa] text-gray-900"
       }`}>
-        <div className="max-w-7xl mx-auto space-y-32">
+        <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
           
           {/* TÍTULO PRINCIPAL */}
           <div className="text-center space-y-4">
-            <h1 className="text-5xl md:text-7xl font-[900] tracking-tighter uppercase">
+            <h1 className="text-4xl md:text-7xl font-[900] tracking-tighter uppercase">
               Ingeniería <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] to-[#6366f1]">con propósito</span>
             </h1>
           </div>
 
           {/* SECCIÓN BIOGRAFÍA, FOTO Y STATS */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            <div className="lg:col-span-5 space-y-8 text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            {/* TEXTO: Aparece segundo en móvil, primero en escritorio */}
+            <div className="lg:col-span-5 space-y-8 text-left order-2 lg:order-1">
               <div className="space-y-2">
                 <h3 className="text-xs font-black tracking-widest uppercase opacity-50">Sobre mí</h3>
                 <div className="w-12 h-1 bg-gradient-to-r from-[#d946ef] to-[#6366f1]"></div>
@@ -77,22 +79,28 @@ export default function About({ isDark }) {
                 <p>
                   Mi enfoque no es solo escribir código, sino diseñar soluciones. Me especializo en desglosar problemas complejos en sistemas modulares y eficientes, asegurando que cada línea de código aporte valor al negocio y estabilidad al usuario final.
                 </p>
-                <p>
-                  Actualmente, estoy profundizando en el uso de <span className="font-bold">IA Generativa y Ciencia de Datos</span> para potenciar la lógica de negocio en entornos de microservicios, buscando siempre llevar la tecnología un paso más allá.
+                <p className="hidden md:block">
+                  Actualmente, estoy profundizando en el uso de <span className="font-bold">IA Generativa y Ciencia de Datos</span> para potenciar la lógica de negocio en entornos de microservicios.
                 </p>
               </div>
             </div>
 
-            <div className="lg:col-span-4 flex justify-center sticky top-32">
+            {/* FOTO: Aparece primero en móvil. Sticky desactivado en móvil para evitar solapamiento */}
+            <div className="lg:col-span-4 flex justify-center lg:sticky lg:top-32 order-1 lg:order-2">
               <div className={`relative p-2 border-2 ${isDark ? 'border-white' : 'border-black'} rounded-lg shadow-[10px_10px_0px_0px_rgba(217,70,239,0.5)] transition-transform hover:scale-105 duration-500`}>
-                <img src={yoAbout} alt="Gian Peer" className="w-full max-w-[350px] rounded-sm grayscale hover:grayscale-0 transition-all duration-700 object-cover" />
+                <img 
+                  src={yoAbout} 
+                  alt="Gian Peer" 
+                  className="w-full max-w-[280px] md:max-w-[350px] rounded-sm grayscale hover:grayscale-0 transition-all duration-700 object-cover" 
+                />
               </div>
             </div>
 
-            <div className="lg:col-span-3 space-y-12 lg:text-right">
+            {/* STATS: Aparece al final del bloque en móvil */}
+            <div className="lg:col-span-3 grid grid-cols-2 lg:grid-cols-1 gap-8 lg:space-y-12 lg:text-right order-3">
               {stats.map((stat, index) => (
                 <div key={index} className="group">
-                  <h4 className="text-5xl md:text-7xl font-black group-hover:text-[#6366f1] transition-colors duration-300">{stat.value}</h4>
+                  <h4 className="text-4xl md:text-7xl font-black group-hover:text-[#6366f1] transition-colors duration-300">{stat.value}</h4>
                   <p className="text-[10px] uppercase tracking-[0.2em] opacity-50 font-black mt-2">{stat.label}</p>
                 </div>
               ))}
@@ -101,7 +109,7 @@ export default function About({ isDark }) {
 
           {/* SECCIÓN HABILIDADES */}
           <div className="pt-24 border-t border-current border-opacity-10">
-            <h2 className="text-4xl md:text-6xl font-black text-center mb-20 tracking-tighter uppercase">
+            <h2 className="text-4xl md:text-6xl font-black text-center mb-16 md:mb-20 tracking-tighter uppercase">
               Stack <span className="text-[#d946ef]">Tecnológico</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -126,7 +134,7 @@ export default function About({ isDark }) {
 
           {/* SECCIÓN EXPERIENCIA */}
           <div className="pt-24 border-t border-current border-opacity-10">
-            <h2 className="text-4xl md:text-6xl font-black text-center mb-20 tracking-tighter uppercase">
+            <h2 className="text-4xl md:text-6xl font-black text-center mb-16 md:mb-20 tracking-tighter uppercase">
               Trayectoria <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] to-[#6366f1]">Profesional</span>
             </h2>
             <div className="max-w-4xl mx-auto space-y-12">
@@ -135,16 +143,16 @@ export default function About({ isDark }) {
                   <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#d946ef] shadow-[0_0_15px_rgba(217,70,239,0.5)]"></div>
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
                     <div>
-                      <h3 className="text-2xl font-black">{exp.role}</h3>
-                      <p className="text-[#6366f1] font-bold text-lg">{exp.company}</p>
+                      <h3 className="text-xl md:text-2xl font-black">{exp.role}</h3>
+                      <p className="text-[#6366f1] font-bold text-base md:text-lg">{exp.company}</p>
                     </div>
-                    <span className={`text-xs font-black px-4 py-1.5 rounded-full mt-2 md:mt-0 tracking-widest uppercase ${isDark ? "bg-white/10 text-white" : "bg-black/5 text-black"}`}>
+                    <span className={`text-[10px] font-black px-4 py-1.5 rounded-full mt-2 md:mt-0 tracking-widest uppercase ${isDark ? "bg-white/10 text-white" : "bg-black/5 text-black"}`}>
                       {exp.period}
                     </span>
                   </div>
                   <ul className="space-y-4">
                     {exp.achievements.map((item, aIndex) => (
-                      <li key={aIndex} className="flex items-start gap-3 opacity-80 leading-relaxed font-medium text-sm md:text-base">
+                      <li key={aIndex} className="flex items-start gap-3 opacity-80 leading-relaxed font-medium text-sm md:text-base text-left">
                         <span className="text-[#d946ef] mt-1.5">•</span> {item}
                       </li>
                     ))}
