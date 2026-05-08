@@ -24,13 +24,14 @@ export default function Header({ isDark, setIsDark }) {
         
         {/* IZQUIERDA: LOGO CORPORATIVO */}
         <Link to="/" className="group flex items-center gap-3">
+        
           <div className={`w-9 h-9 rounded-full flex items-center justify-center font-extrabold text-sm transition-all duration-500 shadow-lg ${
             isDark ? "bg-white text-black" : "bg-black text-white"
           }`}>
             GpQ
           </div>
           <span className={`text-xs hidden md:inline font-black uppercase tracking-widest ${isDark ? "opacity-30" : "opacity-40"}`}>
-            Backend Engineer
+            Desarrollador Backend / Full Stack
           </span>
         </Link>
 
@@ -54,6 +55,9 @@ export default function Header({ isDark, setIsDark }) {
         {/* DERECHA: ACCIONES Y BOTÓN MÓVIL */}
         <div className="flex items-center gap-2">
           {/* BOTÓN CTIC-UNI/VACANTE (Opcional, muy formal) */}
+           <a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer"><Github className="w-5 h-5 opacity-70" /></a>
+            <a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer" className="bg-[#0A66C2] p-1.5 rounded-lg"><Linkedin className="w-4 h-4 text-white fill-current" /></a>
+            
           <button 
             onClick={() => navigate('/proyectos')}
             className={`hidden lg:flex items-center gap-2 px-4 py-1.5 rounded-md text-[10px] font-black uppercase tracking-widest transition-all ${
