@@ -5,6 +5,9 @@ import ProfileCard from "../components/ProfileCard";
 import { Analytics } from "@vercel/analytics/react";
 import { Play, Circle, RefreshCw } from "lucide-react";
 
+// Importamos tu imagen desde la ruta exacta que se observa en image_89ff45.jpg
+import mcFondo from "../assets/images/fondo.jpg";
+
 export default function Home({ isDark }) {
   const navigate = useNavigate();
   const [gameStage, setGameStage] = useState("idle"); // "idle" | "console" | "mojang" | "generator" | "menu"
@@ -144,7 +147,6 @@ export default function Home({ isDark }) {
                 </h2>
               </div>
 
-              {/* AQUÍ ESTÁN AMBOS BOTONES REINTEGRADOS */}
               <div className="flex flex-wrap gap-3">
                 <button 
                   onClick={() => window.location.href = 'mailto:Giepeton558@gmail.com'}
@@ -172,15 +174,15 @@ export default function Home({ isDark }) {
             {/* BLOQUE INFERIOR: SOBRE MÍ VS TERMINAL / INTERFAZ MINECRAFT */}
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start w-full">
               
-             {/* DESCRIPCIÓN SOBRE MÍ (5 Columnas) */}
-<div className="xl:col-span-5 space-y-4 text-sm md:text-base leading-relaxed font-medium opacity-70">
-  <p>
-    Enfocado en el diseño y despliegue de <strong>APIs robustas y arquitecturas distribuidas</strong>. Mi prioridad es estructurar software mantenible, aislando la lógica de negocio de la infraestructura mediante la aplicación estricta de patrones limpios.
-  </p>
-  <p>
-    Apasionado por resolver problemas de escalabilidad mediante sistemas orientados a eventos, buscando siempre optimizar la comunicación asíncrona, mitigar cuellos de botella y garantizar la consistencia en el ciclo de vida del dato.
-  </p>
-</div>
+              {/* DESCRIPCIÓN SOBRE MÍ (5 Columnas) */}
+              <div className="xl:col-span-5 space-y-4 text-sm md:text-base leading-relaxed font-medium opacity-70">
+                <p>
+                  Enfocado en el diseño y despliegue de <strong>APIs robustas y arquitecturas distribuidas</strong>. Mi prioridad es estructurar software mantenible, aislando la lógica de negocio de la infraestructura mediante la aplicación estricta de patrones limpios.
+                </p>
+                <p>
+                  Apasionado por resolver problemas de escalabilidad mediante sistemas orientados a eventos, buscando siempre optimizar la comunicación asíncrona, mitigar cuellos de botella y garantizar la consistencia en el ciclo de vida del dato.
+                </p>
+              </div>
 
               {/* PIZARRÓN / SISTEMA ADAPTATIVO INTERACTIVO DE MINECRAFT (7 Columnas) */}
               <div className="xl:col-span-7 w-full min-w-0">
@@ -205,12 +207,20 @@ export default function Home({ isDark }) {
                     )}
                   </div>
 
-                  {/* LIENZO DE LA CONSOLA MUTABLE */}
-                  <div className="bg-black text-zinc-200 p-4 h-[240px] flex flex-col justify-center select-none font-mono transition-all overflow-hidden relative">
+                  {/* LIENZO DE LA CONSOLA MUTABLE CON ESTILOS DINÁMICOS DE FONDO */}
+                  <div 
+                    className="p-0 h-[240px] flex flex-col justify-center select-none font-mono transition-all overflow-hidden relative"
+                    style={{
+                      backgroundColor: "black",
+                      backgroundImage: gameStage === "menu" ? `url(${mcFondo})` : "none",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center"
+                    }}
+                  >
                     
                     {/* ESTADO 1: Consola en Espera (Idle) */}
                     {gameStage === "idle" && (
-                      <div className="flex flex-col items-center justify-center h-full space-y-3 opacity-70 px-4">
+                      <div className="flex flex-col items-center justify-center h-full space-y-3 opacity-70 px-4 text-zinc-200">
                         <pre className="text-zinc-600 text-[10px] text-center">{"$ run --target=programmer_world"}</pre>
                         <button
                           onClick={handleStartLoading}
@@ -223,7 +233,7 @@ export default function Home({ isDark }) {
 
                     {/* ESTADO 2: Logs Rápidos de Compilación */}
                     {gameStage === "console" && (
-                      <div className="flex flex-col h-full justify-center space-y-1 text-[10px] text-green-400 leading-tight">
+                      <div className="flex flex-col h-full justify-center space-y-1 text-[10px] text-green-400 leading-tight p-4">
                         <p>[INFO] Allocating memory segments for core portfolio routes...</p>
                         <p>[INFO] Mounting layout nodes for path definitions...</p>
                         <p className="animate-pulse text-yellow-500">[SYSTEM] Launching splash view module...</p>
@@ -232,7 +242,7 @@ export default function Home({ isDark }) {
 
                     {/* ESTADO 3: Mojang Studios Splash Screen */}
                     {gameStage === "mojang" && (
-                      <div className="flex flex-col items-center justify-center h-full bg-black w-full">
+                      <div className="flex flex-col items-center justify-center h-full bg-black w-full text-zinc-200 p-4">
                         <p className="text-base font-black tracking-tighter text-white uppercase transform scale-y-125">Mojang Studios</p>
                         <div className="w-full max-w-[140px] h-1 bg-zinc-800 rounded-full overflow-hidden border border-zinc-700 mt-2">
                           <div className="bg-red-600 h-full w-4/5 animate-[pulse_1s_infinite]"></div>
@@ -242,7 +252,7 @@ export default function Home({ isDark }) {
 
                     {/* ESTADO 4: Generador de Bloques 3D */}
                     {gameStage === "generator" && (
-                      <div className="flex items-center justify-center h-full w-full gap-6">
+                      <div className="flex items-center justify-center h-full w-full gap-6 text-zinc-200 p-4">
                         <div className="grid grid-cols-5 gap-[2px] w-full max-w-[110px] aspect-square">
                           {render3DGenerator()}
                         </div>
@@ -253,12 +263,12 @@ export default function Home({ isDark }) {
                       </div>
                     )}
 
-                    {/* ESTADO 5: INTERFAZ MENÚ DE MINECRAFT (Mundo del Programador) */}
+                    {/* ESTADO 5: INTERFAZ MENÚ DE MINECRAFT CON FILTRO OSCURO INCORPORADO */}
                     {gameStage === "menu" && (
-                      <div className="flex flex-col items-center justify-between h-full w-full py-2 animate-reveal">
+                      <div className="flex flex-col items-center justify-between h-full w-full py-3 bg-black/40 backdrop-blur-[0.5px] animate-reveal box-border">
                         
                         {/* Título Oficial Estilizado */}
-                        <div className="text-center relative">
+                        <div className="text-center relative pt-1">
                           <h3 className="text-yellow-500 font-black tracking-tight text-center uppercase text-sm sm:text-base mc-title-shadow [font-family:inherit]">
                             Mundo del Programador
                           </h3>
@@ -267,10 +277,10 @@ export default function Home({ isDark }) {
                           </span>
                         </div>
 
-                        {/* Contenedor de Botones Oficiales de Minecraft */}
-                        <div className="w-full max-w-[240px] flex flex-col gap-2.5">
+                        {/* Contenedor de Botones Oficiales Sincronizados a Kebab-case */}
+                        <div className="w-full max-w-[240px] flex flex-col gap-2.5 px-4 box-border">
                           <button 
-                            onClick={() => navigate("/acerca de")} 
+                            onClick={() => navigate("/acerca-de")} 
                             className="w-full py-2 text-[10px] font-bold uppercase tracking-wider mc-btn rounded transition-all touch-manipulation"
                           >
                             Acerca De Mí
@@ -300,7 +310,7 @@ export default function Home({ isDark }) {
                         </div>
 
                         {/* Footer de versión */}
-                        <div className="w-full text-right text-[8px] text-zinc-500 font-semibold pr-2">
+                        <div className="w-full text-right text-[8px] text-zinc-300 font-semibold pr-4 box-border tracking-wider text-shadow">
                           Minecraft Tech v1.20.6
                         </div>
                       </div>
