@@ -49,12 +49,58 @@ export default function About({ isDark }) {
     }
   ];
 
+  // Matriz de partículas de fondo idéntica a la del Home para mantener consistencia de marca
+  const particles = [
+    { top: "8%", left: "12%", size: "w-1 h-1", anim: "animate-pulse", delay: "0s", color: "bg-[#d946ef]" },
+    { top: "22%", left: "48%", size: "w-1.5 h-1.5", anim: "animate-ping", delay: "1.5s", color: "bg-[#6366f1]" },
+    { top: "15%", left: "80%", size: "w-1 h-1", anim: "animate-pulse", delay: "0.5s", color: "bg-[#0ea5e9]" },
+    { top: "38%", left: "88%", size: "w-2 h-2", anim: "animate-ping", delay: "2.3s", color: "bg-[#d946ef]" },
+    { top: "55%", left: "8%", size: "w-1.5 h-1.5", anim: "animate-pulse", delay: "1.1s", color: "bg-[#6366f1]" },
+    { top: "72%", left: "25%", size: "w-1 h-1", anim: "animate-ping", delay: "3s", color: "bg-[#0ea5e9]" },
+    { top: "88%", left: "55%", size: "w-2 h-2", anim: "animate-pulse", delay: "0.2s", color: "bg-[#d946ef]" },
+    { top: "68%", left: "82%", size: "w-1 h-1", anim: "animate-ping", delay: "1.8s", color: "bg-[#6366f1]" },
+    { top: "32%", left: "30%", size: "w-1 h-1", anim: "animate-pulse", delay: "2.5s", color: "bg-[#0ea5e9]" },
+    { top: "48%", left: "72%", size: "w-1.5 h-1.5", anim: "animate-ping", delay: "0.7s", color: "bg-[#d946ef]" },
+    { top: "95%", left: "35%", size: "w-1 h-1", anim: "animate-pulse", delay: "1.3s", color: "bg-[#6366f1]" },
+    { top: "18%", left: "92%", size: "w-2 h-2", anim: "animate-ping", delay: "2s", color: "bg-[#0ea5e9]" },
+    { top: "45%", left: "94%", size: "w-1 h-1", anim: "animate-pulse", delay: "0.4s", color: "bg-[#d946ef]" },
+    { top: "62%", left: "45%", size: "w-1.5 h-1.5", anim: "animate-ping", delay: "2.8s", color: "bg-[#6366f1]" },
+    { top: "28%", left: "4%", size: "w-1 h-1", anim: "animate-pulse", delay: "1.6s", color: "bg-[#0ea5e9]" }
+  ];
+
   return (
     <PageTransition>
-      <section className={`min-h-screen pt-32 pb-20 px-6 transition-colors duration-700 ${
+      <section className={`min-h-screen pt-32 pb-20 px-6 transition-colors duration-700 relative overflow-hidden ${
         isDark ? "bg-[#0a0a0a] text-white" : "bg-[#f8f9fa] text-gray-900"
       }`}>
-        <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
+        
+        {/* ================= ECOSISTEMA DE PARTICULAS Y LUCES DE FONDO ================= */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          {/* Luz difusa superior izquierda */}
+          <div className="absolute w-[350px] h-[350px] rounded-full blur-[120px] mix-blend-screen opacity-20 animate-pulse bg-[#d946ef] top-[-5%] left-[-5%]" style={{ animationDuration: '8s' }}></div>
+          
+          {/* Luz difusa inferior derecha */}
+          <div className="absolute w-[400px] h-[400px] rounded-full blur-[130px] mix-blend-screen opacity-20 animate-pulse bg-[#6366f1] bottom-[5%] right-[-5%]" style={{ animationDuration: '12s' }}></div>
+
+          {/* Renderizado de micro-nodos parpadeantes */}
+          <div className="absolute inset-0 opacity-40">
+            {particles.map((p, idx) => (
+              <div
+                key={idx}
+                className={`absolute ${p.size} rounded-full ${p.anim} ${isDark ? "bg-white" : p.color}`}
+                style={{
+                  top: p.top,
+                  left: p.left,
+                  animationDelay: p.delay,
+                  animationDuration: p.anim === "animate-ping" ? "3s" : "5s"
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
+        {/* ============================================================================= */}
+
+        <div className="max-w-7xl mx-auto space-y-24 md:space-y-32 relative z-10">
           
           {/* TÍTULO PRINCIPAL */}
           <div className="text-center space-y-4">
@@ -80,18 +126,18 @@ export default function About({ isDark }) {
                   Mi enfoque no es solo escribir código, sino diseñar soluciones. Me especializo en desglosar problemas complejos en sistemas modulares y eficientes, asegurando que cada línea de código aporte valor al negocio y estabilidad al usuario final.
                 </p>
                 <p className="hidden md:block">
-                  Actualmente, estoy profundizando en el uso de <span className="font-bold">IA Generativa y Ciencia de Datos</span> para potenciar la lógica de negocio en entornos de microservicios.
+                  Currently, estoy profundizando en el uso de <span className="font-bold">IA Generativa y Ciencia de Datos</span> para potenciar la lógica de negocio en entornos de microservicios.
                 </p>
               </div>
             </div>
 
-            {/* FOTO: Aparece primero en móvil. Sticky desactivado en móvil para evitar solapamiento */}
+            {/* FOTO A COLOR RECONFIGURADA: Sin clase grayscale para mantener color original */}
             <div className="lg:col-span-4 flex justify-center lg:sticky lg:top-32 order-1 lg:order-2">
               <div className={`relative p-2 border-2 ${isDark ? 'border-white' : 'border-black'} rounded-lg shadow-[10px_10px_0px_0px_rgba(217,70,239,0.5)] transition-transform hover:scale-105 duration-500`}>
                 <img 
                   src={yoAbout} 
                   alt="Gian Peer" 
-                  className="w-full max-w-[280px] md:max-w-[350px] rounded-sm grayscale hover:grayscale-0 transition-all duration-700 object-cover" 
+                  className="w-full max-w-[280px] md:max-w-[350px] rounded-sm transition-all duration-700 object-cover" 
                 />
               </div>
             </div>

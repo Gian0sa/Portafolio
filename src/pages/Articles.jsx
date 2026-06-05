@@ -1,5 +1,5 @@
 import PageTransition from "./PageTransition";
-import { BookOpen, Clock, ArrowRight, Brain, Database, Terminal } from "lucide-react";
+import { Clock, ArrowRight, Brain, Database, Terminal as TermIcon } from "lucide-react";
 
 export default function Articles({ isDark }) {
   const learningNotes = [
@@ -9,7 +9,7 @@ export default function Articles({ isDark }) {
       date: "En curso - 2026",
       readTime: "9na Edición UNI",
       category: "Databases",
-      icon: <Database className="w-5 h-5 text-[#d946ef]" />,
+      icon: <Database className="w-4 h-4 text-[#d946ef]" />,
       link: "#"
     },
     {
@@ -18,7 +18,7 @@ export default function Articles({ isDark }) {
       date: "En curso - 2026",
       readTime: "IA Research",
       category: "Data Science",
-      icon: <Brain className="w-5 h-5 text-[#6366f1]" />,
+      icon: <Brain className="w-4 h-4 text-[#6366f1]" />,
       link: "#"
     },
     {
@@ -27,100 +27,127 @@ export default function Articles({ isDark }) {
       date: "En curso - 2026",
       readTime: "Core Python",
       category: "Programación",
-      icon: <Terminal className="w-5 h-5 text-[#d946ef]" />,
+      icon: <TermIcon className="w-4 h-4 text-[#d946ef]" />,
       link: "#"
     }
   ];
 
+  // Configuración de micropartículas estructuradas (simulando ruido de terminal o nodos de datos)
+  const particles = [
+    { top: "10%", left: "5%", size: "w-[1px] h-[1px]", anim: "animate-pulse" },
+    { top: "28%", left: "85%", size: "w-[2px] h-[2px]", anim: "animate-ping" },
+    { top: "65%", left: "15%", size: "w-[1px] h-[1px]", anim: "animate-pulse" },
+    { top: "85%", left: "75%", size: "w-[1.5px] h-[1.5px]", anim: "animate-pulse" }
+  ];
+
   return (
     <PageTransition>
-      <section className={`min-h-screen pt-32 pb-20 px-6 transition-colors duration-700 ${
+      <section className={`min-h-screen pt-32 pb-20 px-6 transition-colors duration-700 relative overflow-hidden ${
         isDark ? "bg-[#0a0a0a] text-white" : "bg-[#f8f9fa] text-gray-900"
       }`}>
-        <div className="max-w-5xl mx-auto space-y-16">
+        
+        {/* ENTORNO DE LUCES Y RUIDO DE FONDO (Sutil y corporativo) */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          <div className="absolute w-[300px] h-[300px] rounded-full blur-[140px] mix-blend-screen opacity-10 bg-[#6366f1] top-[5%] right-[-5%]" style={{ animationDuration: '10s' }}></div>
+          <div className="absolute w-[300px] h-[300px] rounded-full blur-[140px] mix-blend-screen opacity-10 bg-[#d946ef] bottom-[15%] left-[-5%]" style={{ animationDuration: '14s' }}></div>
+
+          <div className="absolute inset-0 opacity-20">
+            {particles.map((p, idx) => (
+              <div 
+                key={idx} 
+                className={`absolute ${p.size} rounded-full ${p.anim} ${isDark ? "bg-white" : "bg-[#6366f1]"}`} 
+                style={{ top: p.top, left: p.left }}
+              ></div>
+            ))}
+          </div>
+        </div>
+
+        {/* CONTENEDOR CENTRAL COMPACTO (Estilo Editorial) */}
+        <div className="max-w-4xl mx-auto space-y-20 relative z-10">
           
-          {/* CABECERA */}
-          <div className="text-center space-y-4">
-            <h1 className="text-5xl md:text-7xl font-[900] tracking-tighter uppercase italic">
-              Ideas & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] to-[#6366f1]">Especialización</span>
+          {/* CABECERA MINIMALISTA (Rompe la simetría clásica) */}
+          <div className="text-left space-y-4 max-w-2xl border-l-2 border-current pl-6 border-opacity-20">
+            <h1 className="text-4xl md:text-6xl font-[900] tracking-tighter uppercase leading-none">
+              Especialización <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] to-[#6366f1]">
+                & Notas Técnicas.
+              </span>
             </h1>
-            <p className="opacity-60 font-medium max-w-2xl mx-auto italic">
-              Documentando mi especialización técnica en el Programa de Innovación Tecnológica (PIT) del CTIC - UNI.
+            <p className="opacity-60 text-xs sm:text-sm font-semibold tracking-wide">
+              Documentando mi formación avanzada dentro del Programa de Innovación Tecnológica (PIT) en el CTIC - UNI.
             </p>
           </div>
 
-          {/* LISTA DE ARTÍCULOS / CURSOS */}
-          <div className="grid grid-cols-1 gap-6">
+          {/* ESTRUCTURA DE LOGS TÉCNICOS (Adiós a las megatarjetas redondeadas de la IA) */}
+          <div className="divide-y divide-current divide-opacity-10 border-t border-b border-current border-opacity-10">
             {learningNotes.map((art, index) => (
               <div 
                 key={index} 
-                className={`group p-8 rounded-[2.5rem] border transition-all duration-500 ${
-                  isDark 
-                    ? "bg-[#111111] border-white/5 hover:border-[#d946ef]/30" 
-                    : "bg-white border-black/5 hover:shadow-2xl shadow-black/5"
-                }`}
+                className="group py-8 first:pt-4 last:pb-4 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300"
               >
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div className="flex items-start gap-6">
-                    {/* Icono dinámico */}
-                    <div className={`hidden md:flex w-14 h-14 rounded-2xl items-center justify-center transition-all ${
-                      isDark ? "bg-white/5" : "bg-black/5"
-                    }`}>
-                      {art.icon}
-                    </div>
-
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#d946ef]">
-                          {art.category}
-                        </span>
-                        <span className="w-1 h-1 rounded-full bg-gray-500 opacity-30"></span>
-                        <span className="text-[10px] font-bold opacity-40 uppercase tracking-widest">CTIC UNI</span>
-                      </div>
-
-                      <h3 className="text-2xl md:text-3xl font-black group-hover:text-[#6366f1] transition-colors leading-tight">
-                        {art.title}
-                      </h3>
-
-                      <p className="opacity-60 text-sm max-w-2xl leading-relaxed">
-                        {art.excerpt}
-                      </p>
-
-                      <div className="flex items-center gap-4 text-[10px] font-bold opacity-40 uppercase">
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3"/> {art.readTime}
-                        </span>
-                        <span>{art.date}</span>
-                      </div>
-                    </div>
+                <div className="flex items-start gap-5 min-w-0">
+                  {/* Pequeño indicador del stack, sin marcos inflados */}
+                  <div className={`mt-1 w-8 h-8 rounded-lg flex items-center justify-center border ${
+                    isDark ? "bg-zinc-900/50 border-white/10" : "bg-zinc-100 border-black/5"
+                  }`}>
+                    {art.icon}
                   </div>
 
-                  {/* Botón de acción */}
-                  <button className={`w-12 h-12 rounded-full flex items-center justify-center transition-all flex-shrink-0 ${
-                    isDark 
-                      ? "bg-white/5 group-hover:bg-white group-hover:text-black" 
-                      : "bg-black/5 group-hover:bg-black group-hover:text-white"
-                  }`}>
-                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                  </button>
+                  <div className="space-y-2 min-w-0">
+                    <div className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-zinc-500">
+                      <span className="text-[#d946ef]">{art.category}</span>
+                      <span>•</span>
+                      <span>CTIC UNI</span>
+                    </div>
+
+                    {/* El título no cambia de tamaño exageradamente, se mantiene elegante */}
+                    <h3 className={`text-xl md:text-2xl font-black group-hover:text-[#6366f1] transition-colors leading-tight truncate`}>
+                      {art.title}
+                    </h3>
+
+                    <p className="opacity-70 text-xs sm:text-sm max-w-3xl leading-relaxed font-medium">
+                      {art.excerpt}
+                    </p>
+
+                    <div className="flex items-center gap-4 text-[9px] font-bold opacity-40 uppercase tracking-wider pt-1">
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3"/> {art.readTime}
+                      </span>
+                      <span>{art.date}</span>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Botón plano de acción, reacciona al hover de toda la fila */}
+                <button className={`w-10 h-10 rounded-md border flex items-center justify-center transition-all flex-shrink-0 ${
+                  isDark 
+                    ? "border-white/10 group-hover:bg-white group-hover:text-black group-hover:border-white" 
+                    : "border-black/10 group-hover:bg-black group-hover:text-white group-hover:border-black"
+                }`}>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                </button>
               </div>
             ))}
           </div>
 
-          {/* BADGE DE ESTADO ACADÉMICO */}
-          <div className={`p-10 rounded-[3rem] border-2 border-dashed border-opacity-20 flex flex-col items-center text-center space-y-6 ${
-            isDark ? "border-white bg-white/5" : "border-black bg-black/5"
+          {/* BADGE DE CONTROL ACADÉMICO (Estilo consola del sistema, no un banner publicitario) */}
+          <div className={`p-6 sm:p-8 rounded-xl border border-current border-opacity-10 text-left flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 ${
+            isDark ? "bg-zinc-950/40" : "bg-zinc-50"
           }`}>
-            <div className="space-y-2">
-              <h4 className="text-xl font-black italic">Aprendizaje Continuo</h4>
-              <p className="text-xs opacity-60 font-medium max-w-sm">
-                Actualmente cursando la 9na Edición del PIT 2026. Próximamente publicaré resúmenes técnicos de cada módulo finalizado.
+            <div className="space-y-1">
+              <h4 className="text-sm font-black uppercase tracking-wider flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping"></span>
+                Estado Académico Activo
+              </h4>
+              <p className="text-[11px] opacity-60 font-semibold max-w-xl leading-normal">
+                Cursando actualmente la 9na Edición del PIT 2026. La consola liberará los reportes técnicos detallados y scripts de automatización conforme se completen las evaluaciones de Oracle 19c y los entornos distribuidos de Machine Learning.
               </p>
             </div>
-            <div className="flex gap-2">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="text-[10px] font-black uppercase tracking-widest opacity-70">Enfoque: Oracle 19c & Machine Learning</span>
+            
+            <div className={`px-3 py-1.5 rounded text-[9px] font-black uppercase tracking-widest border border-current border-opacity-20 self-start sm:self-center ${
+              isDark ? "bg-zinc-900 text-zinc-400" : "bg-white text-zinc-600"
+            }`}>
+              PIT-2026 Engine
             </div>
           </div>
 
