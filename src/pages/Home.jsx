@@ -280,7 +280,7 @@ export default function Home({ isDark }) {
                         {/* Contenedor de Botones Oficiales Sincronizados a Kebab-case */}
                         <div className="w-full max-w-[240px] flex flex-col gap-2.5 px-4 box-border">
                           <button 
-                            onClick={() => navigate("/acerca-de")} 
+                            onClick={() => navigate("/acerca%20de")} 
                             className="w-full py-2 text-[10px] font-bold uppercase tracking-wider mc-btn rounded transition-all touch-manipulation"
                           >
                             Acerca De Mí
