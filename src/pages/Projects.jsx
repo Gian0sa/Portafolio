@@ -9,6 +9,7 @@ export default function Projects({ isDark }) {
       description: "Sistema Enterprise con IA Contextual (RAG) para gestión de inventarios y eventos. Arquitectura desacoplada y seguridad multicapa.",
       tags: [".NET 8", "PostgreSQL", "Next.js", "Groq AI", "JWT"],
       github: "https://github.com/Gian0sa/Proyect_Kemak",
+      link: "https://proyect-kemak-front.vercel.app/mayorista",
       status: "MVP / Architecture",
       features: [
         "Clean Architecture con Repository & Unit of Work",
