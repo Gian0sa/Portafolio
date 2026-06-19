@@ -72,7 +72,7 @@ export default function Footer({ isDark }) {
             <h4 className={`text-[9px] font-black uppercase tracking-[0.25em] ${isDark ? "text-gray-500" : "opacity-40"}`}>Navegación</h4>
             <ul className="space-y-2.5 font-bold text-xs">
               <li><Link to="/" className="hover:text-[#d946ef] transition-colors">Hogar</Link></li>
-              <li><Link to="/acerca de" className="hover:text-[#d946ef] transition-colors">Acerca de</Link></li>
+              <li><Link to="/acerca-de" className="hover:text-[#d946ef] transition-colors">Acerca de</Link></li>
               <li><Link to="/proyectos" className="hover:text-[#6366f1] transition-colors">Proyectos</Link></li>
             </ul>
           </div>

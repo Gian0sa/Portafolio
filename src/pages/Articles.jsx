@@ -1,5 +1,6 @@
 import PageTransition from "./PageTransition";
 import { Clock, ArrowRight, Brain, Database, Terminal as TermIcon } from "lucide-react";
+import SparklesBackground from "../components/SparklesBackground";
 
 export default function Articles({ isDark }) {
   const learningNotes = [
@@ -32,35 +33,13 @@ export default function Articles({ isDark }) {
     }
   ];
 
-  // Configuración de micropartículas estructuradas (simulando ruido de terminal o nodos de datos)
-  const particles = [
-    { top: "10%", left: "5%", size: "w-[1px] h-[1px]", anim: "animate-pulse" },
-    { top: "28%", left: "85%", size: "w-[2px] h-[2px]", anim: "animate-ping" },
-    { top: "65%", left: "15%", size: "w-[1px] h-[1px]", anim: "animate-pulse" },
-    { top: "85%", left: "75%", size: "w-[1.5px] h-[1.5px]", anim: "animate-pulse" }
-  ];
-
   return (
     <PageTransition>
       <section className={`min-h-screen pt-32 pb-20 px-6 transition-colors duration-700 relative overflow-hidden ${
         isDark ? "bg-[#0a0a0a] text-white" : "bg-[#f8f9fa] text-gray-900"
       }`}>
-        
         {/* ENTORNO DE LUCES Y RUIDO DE FONDO (Sutil y corporativo) */}
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute w-[300px] h-[300px] rounded-full blur-[140px] mix-blend-screen opacity-10 bg-[#6366f1] top-[5%] right-[-5%]" style={{ animationDuration: '10s' }}></div>
-          <div className="absolute w-[300px] h-[300px] rounded-full blur-[140px] mix-blend-screen opacity-10 bg-[#d946ef] bottom-[15%] left-[-5%]" style={{ animationDuration: '14s' }}></div>
-
-          <div className="absolute inset-0 opacity-20">
-            {particles.map((p, idx) => (
-              <div 
-                key={idx} 
-                className={`absolute ${p.size} rounded-full ${p.anim} ${isDark ? "bg-white" : "bg-[#6366f1]"}`} 
-                style={{ top: p.top, left: p.left }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <SparklesBackground isDark={isDark} />
 
         {/* CONTENEDOR CENTRAL COMPACTO (Estilo Editorial) */}
         <div className="max-w-4xl mx-auto space-y-20 relative z-10">

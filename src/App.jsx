@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
@@ -10,11 +10,15 @@ import Articles from "./pages/Articles";
 function AnimatedRoutes({ isDark }) {
   const location = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home isDark={isDark} />} />
-        <Route path="/acerca de" element={<About isDark={isDark} />} />
+        <Route path="/acerca-de" element={<About isDark={isDark} />} />
         <Route path="/proyectos" element={<Project isDark={isDark} />} />
         <Route path="/articulos" element={<Articles isDark={isDark} />} />
       </Routes>

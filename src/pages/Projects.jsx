@@ -1,9 +1,62 @@
 import PageTransition from "./PageTransition"; 
 import { Analytics } from "@vercel/analytics/react"; 
 import { Github, ExternalLink, Cpu, Database, Layers } from "lucide-react";
+import imgAfgDigital from "../assets/images/afg_digital.png";
+import imgLhShop from "../assets/images/lh_shop.png";
+import imgPortafolio from "../assets/images/portafolio.png";
+import imgKemak from "../assets/images/kemak.png";
+import SparklesBackground from "../components/SparklesBackground";
 
 export default function Projects({ isDark }) {
   const myProjects = [
+    {
+      title: "LH Shop - E-commerce",
+      description: "Plataforma de retail optimizada para SEO y alta conversión. Indexación dinámica de cientos de productos mediante Sitemaps automáticos.",
+      tags: ["Next.js 15", "Tailwind CSS", "SEO", "Vercel"],
+      github: "https://github.com/Gian0sa/Zapatillas_LH",
+      link: "https://zapatillas-lh.vercel.app/",
+      status: "Producción / SEO Live",
+      features: [
+        "Indexación dinámica (Sitemap.ts) para Google Search Console",
+        "Arquitectura DRY para gestión unificada de catálogo",
+        "Optimización Mobile-First con carga progresiva",
+        "Integración automática con WhatsApp Business API"
+      ],
+      image: imgLhShop,
+      icon: <ExternalLink className="w-4 h-4 text-[#6366f1]" />
+    },
+    {
+      title: "AFG Digital",
+      description: "Plataforma institucional interactiva diseñada para la consultora AFG Digital. Foco en interfaces de alta performance, animaciones fluidas y accesibilidad.",
+      tags: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+      github: "https://github.com/Gian0sa",
+      link: "https://afg-digital.vercel.app/",
+      status: "Producción / Live",
+      features: [
+        "UI interactiva premium con Framer Motion",
+        "Estructura SEO y metadatos optimizados",
+        "Secciones modulares con carga diferida (lazy load)",
+        "Diseño adaptativo con soporte para modo oscuro"
+      ],
+      image: imgAfgDigital,
+      icon: <Layers className="w-4 h-4 text-[#d946ef]" />
+    },
+    {
+      title: "Portafolio",
+      description: "Portafolio profesional interactivo con temática geek y consola interactiva de Minecraft. Una experiencia interactiva de gamificación para mostrar habilidades técnicas.",
+      tags: ["React 19", "Vite", "Tailwind v4", "Framer Motion", "Router v7"],
+      github: "https://github.com/Gian0sa/portafolio",
+      link: "https://gianpedev-portafolio.vercel.app/",
+      status: "Producción / Live",
+      features: [
+        "Consola interactiva de carga de chunks 3D isométrica",
+        "Transiciones de página fluidas y optimizadas",
+        "Sistema de scroll y navegación adaptativo",
+        "Ecosistema de micropartículas animadas en fondo"
+      ],
+      image: imgPortafolio,
+      icon: <Cpu className="w-4 h-4 text-[#6366f1]" />
+    },
     {
       title: "KEMAK ERP v4.0",
       description: "Sistema Enterprise con IA Contextual (RAG) para gestión de inventarios y eventos. Arquitectura desacoplada y seguridad multicapa.",
@@ -16,22 +69,8 @@ export default function Projects({ isDark }) {
         "Sistema de Roles (RBAC) avanzado para Admin y Personal",
         "Validación de seguridad mediante Middlewares JWT"
       ],
+      image: imgKemak,
       icon: <Cpu className="w-4 h-4 text-[#d946ef]" />
-    },
-    {
-      title: "LH Shop - E-commerce",
-      description: "Plataforma de retail optimizada para SEO y alta conversión. Indexación dinámica de cientos de productos mediante Sitemaps automáticos.",
-      tags: ["Next.js 15", "Tailwind CSS", "SEO", "Vercel"],
-      github: "https://github.com/Gian0sa/Zapatillas_LH",
-      link: "https://zapatillas-lh.vercel.app/",
-      status: "Producción / SEO Live",
-      features: [
-        "Indexación dinámica (Sitemap.ts) para Google Search Console",
-        "Arquitectura DRY para gestión unificada de ropa y calzado",
-        "Optimización Mobile-First con carga progresiva",
-        "Integración automática con WhatsApp Business API"
-      ],
-      icon: <ExternalLink className="w-4 h-4 text-[#6366f1]" />
     },
     {
       title: "Microservices Ecosystem",
@@ -45,15 +84,9 @@ export default function Projects({ isDark }) {
         "Estrategias de Caching con Redis",
         "Documentación técnica con Swagger"
       ],
+      image: null,
       icon: <Database className="w-4 h-4 text-zinc-400" />
     }
-  ];
-
-  const particles = [
-    { top: "15%", left: "6%", size: "w-[1px] h-[1px]", anim: "animate-pulse" },
-    { top: "35%", left: "90%", size: "w-[2px] h-[2px]", anim: "animate-ping" },
-    { top: "68%", left: "12%", size: "w-[1px] h-[1px]", anim: "animate-pulse" },
-    { top: "82%", left: "82%", size: "w-[1.5px] h-[1.5px]", anim: "animate-pulse" }
   ];
 
   return (
@@ -61,22 +94,8 @@ export default function Projects({ isDark }) {
       <section className={`min-h-screen pt-32 pb-20 px-6 transition-colors duration-700 relative overflow-hidden ${
         isDark ? "bg-[#0a0a0a] text-white" : "bg-[#f8f9fa] text-gray-900"
       }`}>
-        
         {/* BACKGROUND ANIMADO */}
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute w-[350px] h-[350px] rounded-full blur-[140px] mix-blend-screen opacity-10 bg-[#d946ef] top-[5%] left-[-5%]" style={{ animationDuration: '11s' }}></div>
-          <div className="absolute w-[350px] h-[350px] rounded-full blur-[140px] mix-blend-screen opacity-10 bg-[#6366f1] bottom-[10%] right-[-5%]" style={{ animationDuration: '15s' }}></div>
-
-          <div className="absolute inset-0 opacity-25">
-            {particles.map((p, idx) => (
-              <div 
-                key={idx} 
-                className={`absolute ${p.size} rounded-full ${p.anim} ${isDark ? "bg-white" : "bg-[#6366f1]"}`} 
-                style={{ top: p.top, left: p.left }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <SparklesBackground isDark={isDark} />
 
         {/* CONTENEDOR CENTRAL */}
         <div className="max-w-4xl mx-auto space-y-20 relative z-10">
@@ -120,32 +139,87 @@ export default function Projects({ isDark }) {
                 </div>
 
                 {/* Contenido Desglosado */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                  <div className="lg:col-span-5 space-y-3">
-                    <h3 className="text-2xl font-black group-hover:text-[#6366f1] transition-colors leading-tight">
-                      {project.title}
-                    </h3>
-                    <p className={`text-xs sm:text-sm leading-relaxed font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                      {project.description}
-                    </p>
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                  
+                  {/* LADO IZQUIERDO: IMAGEN O DIAGRAMA (5 columnas) */}
+                  <div className="md:col-span-5 w-full">
+                    {project.image ? (
+                      <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 group-hover:border-[#d946ef]/30 transition-all duration-500 shadow-md">
+                        <img 
+                          src={project.image} 
+                          alt={project.title} 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+                      </div>
+                    ) : (
+                      /* Diagrama esquemático visual para proyectos backend sin screenshot */
+                      <div className={`relative aspect-video w-full overflow-hidden rounded-xl border flex flex-col justify-between p-4 font-mono text-[9px] ${
+                        isDark 
+                          ? "bg-zinc-950/80 border-white/5 text-zinc-400 shadow-inner" 
+                          : "bg-zinc-100 border-black/5 text-zinc-600 shadow-sm"
+                      }`}>
+                        <div className="flex justify-between items-center border-b border-current border-opacity-10 pb-2">
+                          <span className="text-[8px] font-bold tracking-widest text-[#d946ef]">[SYSTEM_SCHEMATIC]</span>
+                          <span className="animate-pulse text-green-500 font-bold">● ACTIVE</span>
+                        </div>
+                        <div className="flex items-center justify-around my-auto gap-1">
+                          <div className={`p-1.5 rounded border border-dashed flex flex-col items-center gap-1 text-[8px] ${isDark ? "bg-zinc-900 border-white/10" : "bg-white border-black/10"}`}>
+                            <span>Gateway</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                          </div>
+                          <div className="flex flex-col gap-0.5 items-center">
+                            <span className="h-[1px] w-4 border-t border-dashed border-current border-opacity-30"></span>
+                          </div>
+                          <div className={`p-1.5 rounded border border-dashed flex flex-col items-center gap-1 text-[8px] ${isDark ? "bg-zinc-900 border-white/10" : "bg-white border-black/10"}`}>
+                            <span>Broker</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                          </div>
+                          <div className="flex flex-col gap-0.5 items-center">
+                            <span className="h-[1px] w-4 border-t border-dashed border-current border-opacity-30"></span>
+                          </div>
+                          <div className={`p-1.5 rounded border border-dashed flex flex-col items-center gap-1 text-[8px] ${isDark ? "bg-zinc-900 border-white/10" : "bg-white border-black/10"}`}>
+                            <span>Db Cluster</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                          </div>
+                        </div>
+                        <div className="text-[7px] flex justify-between opacity-50">
+                          <span>CPU: ~14%</span>
+                          <span>LATENCY: 12ms</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
-                  {/* CAJA DE ESPECIFICACIONES CON COLORES FIJOS DE CONTRASTE */}
-                  <div className={`lg:col-span-7 p-5 rounded-xl border ${
-                    isDark 
-                      ? "bg-[#111111]/60 border-white/5 text-zinc-300" 
-                      : "bg-zinc-50 border-black/5 text-zinc-700"
-                  }`}>
-                    <span className="block text-[8px] font-black uppercase tracking-widest text-zinc-500 mb-3">Especificaciones del Sistema</span>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
-                      {project.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs font-semibold">
-                          <span className="text-[#d946ef] mt-0.5 select-none">•</span>
-                          <span className="leading-tight">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  {/* LADO DERECHO: TEXTO Y ESPECIFICACIONES (7 columnas) */}
+                  <div className="md:col-span-7 space-y-4">
+                    <div className="space-y-1.5">
+                      <h3 className="text-xl md:text-2xl font-black group-hover:text-[#6366f1] transition-colors leading-tight">
+                        {project.title}
+                      </h3>
+                      <p className={`text-xs sm:text-sm leading-relaxed font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* CAJA DE ESPECIFICACIONES CON COLORES FIJOS DE CONTRASTE */}
+                    <div className={`p-4 rounded-xl border ${
+                      isDark 
+                        ? "bg-[#111111]/60 border-white/5 text-zinc-300" 
+                        : "bg-zinc-50 border-black/5 text-zinc-700"
+                    }`}>
+                      <span className="block text-[8px] font-black uppercase tracking-widest text-zinc-500 mb-2.5">Especificaciones del Sistema</span>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                        {project.features.map((feature, i) => (
+                          <li key={i} className="flex items-start gap-1.5 text-xs font-semibold">
+                            <span className="text-[#d946ef] mt-0.5 select-none">•</span>
+                            <span className="leading-tight">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
+
                 </div>
 
                 {/* Pie del Item: Etiquetas y Enlaces */}

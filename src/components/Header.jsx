@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin, Moon, Sun, Menu, X, BriefcaseBusiness } from "lucide-react";
+import { Github, Linkedin, Moon, Sun, Menu, X, Facebook, Instagram } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Header({ isDark, setIsDark }) {
@@ -9,7 +9,7 @@ export default function Header({ isDark, setIsDark }) {
 
   const navItems = [
     { name: "Hogar", path: "/" },
-    { name: "Acerca de", path: "/acerca de" },
+    { name: "Acerca de", path: "/acerca-de" },
     { name: "Proyectos", path: "/proyectos" },
     { name: "Artículos", path: "/articulos" }
   ];
@@ -53,20 +53,22 @@ export default function Header({ isDark, setIsDark }) {
         </nav>
 
         {/* DERECHA: ACCIONES Y BOTÓN MÓVIL */}
-        <div className="flex items-center gap-2">
-          {/* BOTÓN CTIC-UNI/VACANTE (Opcional, muy formal) */}
-           <a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer"><Github className="w-5 h-5 opacity-70" /></a>
-            <a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer" className="bg-[#0A66C2] p-1.5 rounded-lg"><Linkedin className="w-4 h-4 text-white fill-current" /></a>
-            
-          <button 
-            onClick={() => navigate('/proyectos')}
-            className={`hidden lg:flex items-center gap-2 px-4 py-1.5 rounded-md text-[10px] font-black uppercase tracking-widest transition-all ${
-              isDark ? "bg-[#d946ef]/10 text-[#d946ef] hover:bg-[#d946ef]/20" : "bg-[#6366f1]/5 text-[#6366f1] hover:bg-[#6366f1]/10"
-            }`}
-          >
-            <BriefcaseBusiness className="w-3.5 h-3.5" />
-            Ver Proyectos
-          </button>
+        <div className="flex items-center gap-3">
+          {/* REDES SOCIALES ESCRITORIO */}
+          <div className="hidden sm:flex items-center gap-2.5 mr-2">
+            <a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer" className={`opacity-70 hover:opacity-100 transition-opacity ${isDark ? "text-white" : "text-black"}`}>
+              <Github className="w-5 h-5" />
+            </a>
+            <a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer" className="bg-[#0A66C2] p-1.5 rounded-lg hover:scale-110 transition-transform flex items-center justify-center">
+              <Linkedin className="w-4 h-4 text-white fill-current" />
+            </a>
+            <a href="https://www.facebook.com/gian.peer" target="_blank" rel="noreferrer" className="bg-[#1877F2] p-1.5 rounded-lg hover:scale-110 transition-transform flex items-center justify-center">
+              <Facebook className="w-4 h-4 text-white fill-current" />
+            </a>
+            <a href="https://www.instagram.com/gian_.pr/" target="_blank" rel="noreferrer" className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-1.5 rounded-lg hover:scale-110 transition-transform flex items-center justify-center">
+              <Instagram className="w-4 h-4 text-white" />
+            </a>
+          </div>
 
           <button onClick={() => setIsDark(!isDark)} className={`p-2 rounded-full transition-colors ${isDark ? "hover:bg-white/10 text-yellow-400" : "hover:bg-black/5 text-gray-600"}`}>
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -102,9 +104,19 @@ export default function Header({ isDark, setIsDark }) {
             </Link>
           ))}
           
-          <div className="flex gap-4 pt-6 border-t border-current border-opacity-5 w-full justify-end pr-4">
-            <a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer"><Github className="w-5 h-5 opacity-70" /></a>
-            <a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer"><Linkedin className="w-5 h-5 text-[#0A66C2]" /></a>
+          <div className="flex gap-3 pt-6 border-t border-current border-opacity-5 w-full justify-end pr-4 items-center">
+            <a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer" className={`opacity-70 hover:opacity-100 transition-opacity ${isDark ? "text-white" : "text-black"}`}>
+              <Github className="w-5 h-5" />
+            </a>
+            <a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer" className="bg-[#0A66C2] p-1.5 rounded-lg flex items-center justify-center">
+              <Linkedin className="w-4 h-4 text-white fill-current" />
+            </a>
+            <a href="https://www.facebook.com/gian.peer" target="_blank" rel="noreferrer" className="bg-[#1877F2] p-1.5 rounded-lg flex items-center justify-center">
+              <Facebook className="w-4 h-4 text-white fill-current" />
+            </a>
+            <a href="https://www.instagram.com/gian_.pr/" target="_blank" rel="noreferrer" className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-1.5 rounded-lg flex items-center justify-center">
+              <Instagram className="w-4 h-4 text-white" />
+            </a>
           </div>
         </nav>
       </div>

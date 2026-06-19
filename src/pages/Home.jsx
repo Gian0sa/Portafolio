@@ -4,9 +4,8 @@ import PageTransition from "./PageTransition";
 import ProfileCard from "../components/ProfileCard";
 import { Analytics } from "@vercel/analytics/react";
 import { Play, Circle, RefreshCw } from "lucide-react";
-
-// Importamos tu imagen desde la ruta exacta que se observa en image_89ff45.jpg
 import mcFondo from "../assets/images/fondo.jpg";
+import SparklesBackground from "../components/SparklesBackground";
 
 export default function Home({ isDark }) {
   const navigate = useNavigate();
@@ -74,29 +73,13 @@ export default function Home({ isDark }) {
     });
   };
 
-  const particles = [
-    { top: "12%", left: "15%", size: "w-1 h-1", anim: "animate-pulse" },
-    { top: "25%", left: "45%", size: "w-1.5 h-1.5", anim: "animate-ping" },
-    { top: "60%", left: "10%", size: "w-1.5 h-1.5", anim: "animate-pulse" },
-    { top: "70%", left: "80%", size: "w-1 h-1", anim: "animate-ping" }
-  ];
-
   return (
     <PageTransition>
       <section className={`min-h-screen flex items-center justify-center pt-28 pb-12 px-4 md:px-6 transition-colors duration-700 relative overflow-hidden ${
         isDark ? "bg-[#0a0a0a] text-white" : "bg-[#f8f9fa] text-gray-900"
       }`}>
-        
         {/* FONDO DE LUCES Y PARTÍCULAS */}
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute w-[350px] h-[350px] rounded-full blur-[120px] mix-blend-screen opacity-20 animate-pulse bg-[#d946ef] top-[-10%] left-[-5%]" style={{ animationDuration: '8s' }}></div>
-          <div className="absolute w-[400px] h-[400px] rounded-full blur-[130px] mix-blend-screen opacity-20 animate-pulse bg-[#6366f1] bottom-[10%] right-[-5%]" style={{ animationDuration: '12s' }}></div>
-          <div className="absolute inset-0 opacity-40">
-            {particles.map((p, idx) => (
-              <div key={idx} className={`absolute ${p.size} rounded-full ${p.anim} ${isDark ? "bg-white" : "bg-[#6366f1]"}`} style={{ top: p.top, left: p.left }}></div>
-            ))}
-          </div>
-        </div>
+        <SparklesBackground isDark={isDark} />
 
         {/* INYECTAMOS ESTILOS DE LOS BOTONES DE MINECRAFT SIN AGREGAR ARCHIVOS EXTERNOS */}
         <style>{`
@@ -280,7 +263,7 @@ export default function Home({ isDark }) {
                         {/* Contenedor de Botones Oficiales Sincronizados a Kebab-case */}
                         <div className="w-full max-w-[240px] flex flex-col gap-2.5 px-4 box-border">
                           <button 
-                            onClick={() => navigate("/acerca%20de")} 
+                            onClick={() => navigate("/acerca-de")} 
                             className="w-full py-2 text-[10px] font-bold uppercase tracking-wider mc-btn rounded transition-all touch-manipulation"
                           >
                             Acerca De Mí
