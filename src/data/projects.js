@@ -7,8 +7,8 @@ import imgKemak from "../assets/images/kemak/kemak.webp";
 import imgKemakDashboard from "../assets/images/kemak/dashboard.webp";
 import imgKemakProductos from "../assets/images/kemak/productos.webp";
 import imgKemakVisual from "../assets/images/kemak/visual_usuario.webp";
-import imgAutonet from "../assets/images/autonet/autonet.webp";
-import imgAutonetListado from "../assets/images/autonet/listado.webp";
+// import imgAutonet from "../assets/images/autonet/autonet.webp";
+// import imgAutonetListado from "../assets/images/autonet/listado.webp";
 
 export const myProjects = [
   {

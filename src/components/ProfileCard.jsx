@@ -191,9 +191,9 @@ export default function ProfileCard({ isDark }) {
         {/* Información de Perfil */}
         <div className="space-y-4 text-center">
           <div className="space-y-1">
-            <h3 className="text-xl font-[900] tracking-tight leading-tight">
+            <h2 className="text-xl font-[900] tracking-tight leading-tight">
               Gian Peer Quispe
-            </h3>
+            </h2>
             <p className="text-[10px] font-black uppercase tracking-[0.15em] text-[#d946ef]">
               Backend Developer & Architect
             </p>

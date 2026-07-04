@@ -69,7 +69,7 @@ export default function Footer({ isDark }) {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm">
           
           <div className="space-y-3">
-            <h4 className={`text-[9px] font-black uppercase tracking-[0.25em] ${isDark ? "text-gray-500" : "opacity-40"}`}>Navegación</h4>
+            <h3 className={`text-[9px] font-black uppercase tracking-[0.25em] ${isDark ? "text-gray-500" : "opacity-40"}`}>Navegación</h3>
             <ul className="space-y-2.5 font-bold text-xs">
               <li><Link to="/" className="hover:text-[#d946ef] transition-colors">Hogar</Link></li>
               <li><Link to="/acerca-de" className="hover:text-[#d946ef] transition-colors">Acerca de</Link></li>
@@ -78,7 +78,7 @@ export default function Footer({ isDark }) {
           </div>
 
           <div className="space-y-3">
-            <h4 className={`text-[9px] font-black uppercase tracking-[0.25em] ${isDark ? "text-gray-500" : "opacity-40"}`}>Social</h4>
+            <h3 className={`text-[9px] font-black uppercase tracking-[0.25em] ${isDark ? "text-gray-500" : "opacity-40"}`}>Social</h3>
             <ul className="space-y-2.5 font-bold text-xs">
               <li><a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-[#d946ef] transition-colors"><Github className="w-3.5 h-3.5"/> Github</a></li>
               <li><a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-[#6366f1] transition-colors"><Linkedin className="w-3.5 h-3.5"/> LinkedIn</a></li>
@@ -86,7 +86,7 @@ export default function Footer({ isDark }) {
           </div>
 
           <div className="space-y-2 sm:text-right">
-            <h4 className={`text-[9px] font-black uppercase tracking-[0.25em] ${isDark ? "text-gray-500" : "opacity-40"}`}>Ubicación</h4>
+            <h3 className={`text-[9px] font-black uppercase tracking-[0.25em] ${isDark ? "text-gray-500" : "opacity-40"}`}>Ubicación</h3>
             <p className="font-bold text-xs">giepeton558@gmail.com</p>
             <p className={`text-[11px] font-medium italic ${isDark ? "text-gray-500" : "text-gray-400"}`}>
               Lima, Perú. Disponible para remoto.
