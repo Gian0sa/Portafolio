@@ -6,7 +6,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import Project from "./pages/Projects";
-import Articles from "./pages/Articles";
 function AnimatedRoutes({ isDark }) {
   const location = useLocation();
 
@@ -20,7 +19,6 @@ function AnimatedRoutes({ isDark }) {
         <Route path="/" element={<Home isDark={isDark} />} />
         <Route path="/acerca-de" element={<About isDark={isDark} />} />
         <Route path="/proyectos" element={<Project isDark={isDark} />} />
-        <Route path="/articulos" element={<Articles isDark={isDark} />} />
       </Routes>
     </AnimatePresence>
   );

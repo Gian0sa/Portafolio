@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function SparklesBackground({ isDark }) {
-  const [particles, setParticles] = useState([]);
-
-  useEffect(() => {
+  const [particles] = useState(() => {
     const colors = [
       "bg-[#0ea5e9]", // Cyan
       "bg-[#6366f1]", // Indigo
@@ -12,7 +10,7 @@ export default function SparklesBackground({ isDark }) {
       "bg-white"      // White
     ];
     
-    const list = Array.from({ length: 45 }).map((_, i) => {
+    return Array.from({ length: 45 }).map((_, i) => {
       const size = Math.random() * 3 + 1.5; // 1.5px to 4.5px
       const color = colors[Math.floor(Math.random() * colors.length)];
       
@@ -27,8 +25,7 @@ export default function SparklesBackground({ isDark }) {
         driftX: `${(Math.random() - 0.5) * 50}px` // -25px to 25px sideways drift
       };
     });
-    setParticles(list);
-  }, []);
+  });
 
   return (
     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">

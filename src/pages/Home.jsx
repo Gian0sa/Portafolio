@@ -4,7 +4,7 @@ import PageTransition from "./PageTransition";
 import ProfileCard from "../components/ProfileCard";
 import { Analytics } from "@vercel/analytics/react";
 import { Play, Circle, RefreshCw } from "lucide-react";
-import mcFondo from "../assets/images/fondo.jpg";
+import mcFondo from "../assets/images/fondo.webp";
 import SparklesBackground from "../components/SparklesBackground";
 
 export default function Home({ isDark }) {
@@ -17,9 +17,11 @@ export default function Home({ isDark }) {
     if (gameStage === "console") {
       setTimeout(() => setGameStage("mojang"), 1000);
     } else if (gameStage === "mojang") {
-      setTimeout(() => setGameStage("generator"), 1200);
+      setTimeout(() => {
+        setProgress(0);
+        setGameStage("generator");
+      }, 1200);
     } else if (gameStage === "generator") {
-      setProgress(0);
       const interval = setInterval(() => {
         setProgress((prev) => {
           if (prev >= 100) {

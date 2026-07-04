@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { Github, Linkedin, Moon, Sun, Menu, X, Facebook, Instagram } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header({ isDark, setIsDark }) {
   const location = useLocation();
-  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { name: "Hogar", path: "/" },
     { name: "Acerca de", path: "/acerca-de" },
-    { name: "Proyectos", path: "/proyectos" },
-    { name: "Artículos", path: "/articulos" }
+    { name: "Proyectos", path: "/proyectos" }
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -56,21 +54,21 @@ export default function Header({ isDark, setIsDark }) {
         <div className="flex items-center gap-3">
           {/* REDES SOCIALES ESCRITORIO */}
           <div className="hidden sm:flex items-center gap-2.5 mr-2">
-            <a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer" className={`opacity-70 hover:opacity-100 transition-opacity ${isDark ? "text-white" : "text-black"}`}>
+            <a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer" aria-label="Perfil de GitHub de Gian Peer" className={`opacity-70 hover:opacity-100 transition-opacity ${isDark ? "text-white" : "text-black"}`}>
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer" className="bg-[#0A66C2] p-1.5 rounded-lg hover:scale-110 transition-transform flex items-center justify-center">
+            <a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer" aria-label="Perfil de LinkedIn de Gian Peer" className="bg-[#0A66C2] p-1.5 rounded-lg hover:scale-110 transition-transform flex items-center justify-center">
               <Linkedin className="w-4 h-4 text-white fill-current" />
             </a>
-            <a href="https://www.facebook.com/gian.peer" target="_blank" rel="noreferrer" className="bg-[#1877F2] p-1.5 rounded-lg hover:scale-110 transition-transform flex items-center justify-center">
+            <a href="https://www.facebook.com/gian.peer" target="_blank" rel="noreferrer" aria-label="Perfil de Facebook de Gian Peer" className="bg-[#1877F2] p-1.5 rounded-lg hover:scale-110 transition-transform flex items-center justify-center">
               <Facebook className="w-4 h-4 text-white fill-current" />
             </a>
-            <a href="https://www.instagram.com/gian_.pr/" target="_blank" rel="noreferrer" className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-1.5 rounded-lg hover:scale-110 transition-transform flex items-center justify-center">
+            <a href="https://www.instagram.com/gian_.pr/" target="_blank" rel="noreferrer" aria-label="Perfil de Instagram de Gian Peer" className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-1.5 rounded-lg hover:scale-110 transition-transform flex items-center justify-center">
               <Instagram className="w-4 h-4 text-white" />
             </a>
           </div>
 
-          <button onClick={() => setIsDark(!isDark)} className={`p-2 rounded-full transition-colors ${isDark ? "hover:bg-white/10 text-yellow-400" : "hover:bg-black/5 text-gray-600"}`}>
+          <button onClick={() => setIsDark(!isDark)} aria-label="Cambiar tema de color" className={`p-2 rounded-full transition-colors ${isDark ? "hover:bg-white/10 text-yellow-400" : "hover:bg-black/5 text-gray-600"}`}>
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
 
@@ -78,6 +76,7 @@ export default function Header({ isDark, setIsDark }) {
           <button 
             className="md:hidden p-2 ml-1"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Abrir o cerrar menú de navegación"
           >
             {isMenuOpen ? <X className="w-5 h-5 text-[#d946ef]" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -105,16 +104,16 @@ export default function Header({ isDark, setIsDark }) {
           ))}
           
           <div className="flex gap-3 pt-6 border-t border-current border-opacity-5 w-full justify-end pr-4 items-center">
-            <a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer" className={`opacity-70 hover:opacity-100 transition-opacity ${isDark ? "text-white" : "text-black"}`}>
+            <a href="https://github.com/Gian0sa" target="_blank" rel="noreferrer" aria-label="Perfil de GitHub de Gian Peer (Móvil)" className={`opacity-70 hover:opacity-100 transition-opacity ${isDark ? "text-white" : "text-black"}`}>
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer" className="bg-[#0A66C2] p-1.5 rounded-lg flex items-center justify-center">
+            <a href="https://linkedin.com/in/gian-pee/" target="_blank" rel="noreferrer" aria-label="Perfil de LinkedIn de Gian Peer (Móvil)" className="bg-[#0A66C2] p-1.5 rounded-lg flex items-center justify-center">
               <Linkedin className="w-4 h-4 text-white fill-current" />
             </a>
-            <a href="https://www.facebook.com/gian.peer" target="_blank" rel="noreferrer" className="bg-[#1877F2] p-1.5 rounded-lg flex items-center justify-center">
+            <a href="https://www.facebook.com/gian.peer" target="_blank" rel="noreferrer" aria-label="Perfil de Facebook de Gian Peer (Móvil)" className="bg-[#1877F2] p-1.5 rounded-lg flex items-center justify-center">
               <Facebook className="w-4 h-4 text-white fill-current" />
             </a>
-            <a href="https://www.instagram.com/gian_.pr/" target="_blank" rel="noreferrer" className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-1.5 rounded-lg flex items-center justify-center">
+            <a href="https://www.instagram.com/gian_.pr/" target="_blank" rel="noreferrer" aria-label="Perfil de Instagram de Gian Peer (Móvil)" className="bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-1.5 rounded-lg flex items-center justify-center">
               <Instagram className="w-4 h-4 text-white" />
             </a>
           </div>

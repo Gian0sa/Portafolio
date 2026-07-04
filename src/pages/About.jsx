@@ -1,4 +1,4 @@
-import yoAbout from "../assets/images/yo.jpg"; 
+import yoAbout from "../assets/images/yo.webp"; 
 import PageTransition from "./PageTransition";
 import SparklesBackground from "../components/SparklesBackground";
 
@@ -86,7 +86,7 @@ export default function About({ isDark }) {
             {/* TEXTO: Aparece segundo en móvil, primero en escritorio */}
             <div className="lg:col-span-5 space-y-8 text-left order-2 lg:order-1">
               <div className="space-y-2">
-                <h3 className="text-xs font-black tracking-widest uppercase opacity-50">Sobre mí</h3>
+                <h2 className="text-xs font-black tracking-widest uppercase opacity-50">Sobre mí</h2>
                 <div className="w-12 h-1 bg-gradient-to-r from-[#d946ef] to-[#6366f1]"></div>
               </div>
               <div className="space-y-6 text-base md:text-lg leading-relaxed font-medium opacity-80">
@@ -117,7 +117,7 @@ export default function About({ isDark }) {
             <div className="lg:col-span-3 grid grid-cols-2 lg:grid-cols-1 gap-8 lg:space-y-12 lg:text-right order-3">
               {stats.map((stat, index) => (
                 <div key={index} className="group">
-                  <h4 className="text-4xl md:text-7xl font-black group-hover:text-[#6366f1] transition-colors duration-300">{stat.value}</h4>
+                  <div className="text-4xl md:text-7xl font-black group-hover:text-[#6366f1] transition-colors duration-300">{stat.value}</div>
                   <p className="text-[10px] uppercase tracking-[0.2em] opacity-50 font-black mt-2">{stat.label}</p>
                 </div>
               ))}
@@ -131,10 +131,10 @@ export default function About({ isDark }) {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {skillCategories.map((cat, index) => (
-                <div key={index} className={`p-8 rounded-3xl border transition-all hover:border-[#d946ef]/30 ${isDark ? "bg-white/5 border-white/10" : "bg-black/5 border-black/5"}`}>
-                  <h5 className="text-[#d946ef] font-black uppercase text-[10px] tracking-widest mb-6 flex items-center gap-2">
+                <div key={index} className={`p-8 rounded-3xl border transition-all hover:border-[#d946ef]/30 ${isDark ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/5'}`}>
+                  <h3 className="text-[#d946ef] font-black uppercase text-[10px] tracking-widest mb-6 flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-current"></span> {cat.name}
-                  </h5>
+                  </h3>
                   <div className="flex flex-wrap gap-2">
                     {cat.skills.map((skill, sIndex) => (
                       <span key={sIndex} className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${

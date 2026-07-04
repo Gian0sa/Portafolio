@@ -1,0 +1,20 @@
+# Gian Peer Quispe - Portafolio de Desarrollo
+
+Información detallada sobre el perfil profesional de Gian Peer Quispe, especializado en Arquitectura Backend y Desarrollo de Software.
+
+## Perfil Profesional
+- **Rol**: Backend Developer & Architect
+- **Ubicación**: Lima, Perú (Disponible para trabajo remoto)
+- **Habilidades principales**: Clean Architecture, Arquitectura Hexagonal, sistemas distribuidos, optimizaciones de bases de datos y desarrollo impulsado por IA Contextual (RAG).
+
+## Stack Tecnológico Principal
+- **Lenguajes**: Java, TypeScript, JavaScript, C#, Python, Kotlin, PHP
+- **Frameworks**: NestJS, Spring Boot, Next.js, .NET Core, Laravel
+- **Base de Datos & Caching**: PostgreSQL, Prisma ORM, Redis, MySQL
+- **Servicios Cloud & IA**: DigitalOcean Spaces, Vercel, Groq API (Llama 3), Google Authentication.
+
+## Proyectos Destacados
+1. **AutoNet**: Plataforma integral de compra y venta de vehículos en el mercado peruano, con buscador avanzado, IA Chatbot y módulo OCR para tarjetas de identificación vehicular.
+2. **KEMAK ERP v4.0**: ERP corporativo multi-negocio con IA Contextual (RAG) construida con arquitectura hexagonal.
+3. **LH Shop**: E-commerce de retail con generación estática incremental (ISR) optimizado para SEO masivo.
+4. **AFG Digital**: Plataforma institucional corporativa animada de alta performance.

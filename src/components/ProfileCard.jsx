@@ -1,14 +1,7 @@
 import { Mail, Phone, GraduationCap } from "lucide-react";
-import yo from "../assets/images/yo.jpg";
+import yo from "../assets/images/yo.webp";
 
 export default function ProfileCard({ isDark }) {
-  const birthDate = new Date("2003-10-15"); 
-  const calculateAge = (birthday) => {
-    const ageDifMs = Date.now() - birthday.getTime();
-    const ageDate = new Date(ageDifMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  };
-
   return (
     <div className="relative flex flex-col items-center pt-24 w-full max-w-[320px]">
       
@@ -216,7 +209,7 @@ export default function ProfileCard({ isDark }) {
             <div className="flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
               <GraduationCap className="w-4 h-4 text-[#6366f1] flex-shrink-0" />
               <div className="truncate">
-                <span className="block text-[9px] uppercase tracking-wider opacity-40 font-bold leading-none mb-0.5">Carrera</span>
+                <span className="block text-[9px] uppercase tracking-wider opacity-60 font-bold leading-none mb-0.5">Carrera</span>
                 <span className="font-bold text-xs">Computación e Informática</span>
               </div>
             </div>
@@ -225,7 +218,7 @@ export default function ProfileCard({ isDark }) {
             <div className="flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
               <Mail className="w-4 h-4 text-[#6366f1] flex-shrink-0" />
               <div className="truncate">
-                <span className="block text-[9px] uppercase tracking-wider opacity-40 font-bold leading-none mb-0.5">Correo</span>
+                <span className="block text-[9px] uppercase tracking-wider opacity-60 font-bold leading-none mb-0.5">Correo</span>
                 <span className="font-bold text-xs truncate block">Giepeton558@gmail.com</span>
               </div>
             </div>
@@ -234,7 +227,7 @@ export default function ProfileCard({ isDark }) {
             <div className="flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
               <Phone className="w-4 h-4 text-[#6366f1] flex-shrink-0" />
               <div>
-                <span className="block text-[9px] uppercase tracking-wider opacity-40 font-bold leading-none mb-0.5">Teléfono</span>
+                <span className="block text-[9px] uppercase tracking-wider opacity-60 font-bold leading-none mb-0.5">Teléfono</span>
                 <span className="font-bold text-xs">+51 934569954</span>
               </div>
             </div>
